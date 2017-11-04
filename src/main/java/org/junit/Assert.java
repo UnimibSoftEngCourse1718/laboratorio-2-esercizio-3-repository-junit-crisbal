@@ -28,7 +28,15 @@ public class Assert {
      */
     protected Assert() {
     }
-
+    
+    public static void assertGreaterThan(int a, int b) {
+        assertTrue(null, a > b);
+    }
+    
+    public static void assertGreaterThan(char a, char b) {
+        assertTrue(null, a > b);
+    }
+    
     /**
      * Asserts that a condition is true. If it isn't it throws an
      * {@link AssertionError} with the given message.
