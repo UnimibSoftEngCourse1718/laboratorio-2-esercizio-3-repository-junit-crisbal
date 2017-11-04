@@ -39,6 +39,7 @@ public class AssertionTest {
     
     @Test
     public void assertGreaterThan() {
+
         Assert.assertGreaterThan(new Integer(2), new Integer(1), new Comparator<Integer>() {
             public int compare(Integer i1, Integer i2) {
                 return i1.compareTo(i2);
@@ -50,6 +51,9 @@ public class AssertionTest {
                 return i1.compareTo(i2);
             }
         });
+
+        Assert.assertGreaterThan('b', 'a');
+        Assert.assertGreaterThan(2, 1);
     }
     
     @Test(expected = AssertionError.class)
