@@ -16,6 +16,7 @@ import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Comparator;
 
 import org.junit.Assert;
 import org.junit.ComparisonFailure;
@@ -35,12 +36,27 @@ public class AssertionTest {
 //  }
 
     private static final String ASSERTION_ERROR_EXPECTED = "AssertionError expected";
-
+    
+    @Test
+    public void assertGreaterThan() {
+        Assert.assertGreaterThan(new Integer(2), new Integer(1), new Comparator<Integer>() {
+            public int compare(Integer i1, Integer i2) {
+                return i1.compareTo(i2);
+            }
+        });
+        
+        Assert.assertGreaterThan(new String("BBB"), new String("AAA"), new Comparator<String>() {
+            public int compare(String i1, String i2) {
+                return i1.compareTo(i2);
+            }
+        });
+    }
+    
     @Test(expected = AssertionError.class)
     public void fails() {
         Assert.fail();
     }
-
+    
     @Test
     public void failWithNoMessageToString() {
         try {
